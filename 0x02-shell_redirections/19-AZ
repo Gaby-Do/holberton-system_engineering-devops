@@ -1,0 +1,2 @@
+#!/bin/bash
+awk '{gsub(/A/,"c")}1' | awk '{gsub(/Z/,"e")}1'
