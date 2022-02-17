@@ -10,3 +10,4 @@ while [ $i -le 11 ]; do
 	done
 	i=$((i+1))
 done
+echo "hour: "$i
