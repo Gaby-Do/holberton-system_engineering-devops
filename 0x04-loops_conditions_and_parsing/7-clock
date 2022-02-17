@@ -3,7 +3,7 @@
 i=0
 while [ $i -le 11 ]; do
 	echo "hour: "$i
-	j=0
+	j=1
 	while [ $j -le 59 ]; do
 		echo $j
 		j=$((j+1))
