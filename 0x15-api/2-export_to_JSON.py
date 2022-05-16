@@ -20,8 +20,8 @@ if __name__ == "__main__":
             TASK_COMPLETED_STATUS = item.get('completed')
             TASK_TITLE = item.get('title')
             line.append({
-                "username": '{}'.format(USERNAME),
                 "task": '{}'.format(TASK_TITLE),
-                "completed": '{}'.format(TASK_COMPLETED_STATUS)})
+                "completed": TASK_COMPLETED_STATUS,
+                "username": '{}'.format(USERNAME)})
         data = {"{}".format(USER_ID): line}
         json.dump(data, my_file)
