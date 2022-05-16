@@ -17,10 +17,7 @@ if __name__ == "__main__":
     line = []
     with open('{}.json'.format(USER_ID), 'w') as my_file:
         for item in todo.json():
-            if item.get('completed') is True:
-                TASK_COMPLETED_STATUS = 'true'
-            else:
-                TASK_COMPLETED_STATUS = 'false'
+            TASK_COMPLETED_STATUS = item.get('completed')
             TASK_TITLE = item.get('title')
             line.append({
                 "username": '{}'.format(USERNAME),
