@@ -26,4 +26,4 @@ if __name__ == "__main__":
     for item in todo.json():
         if item.get('completed') is True:
             TASK_TITLE = item.get('title')
-            print("\t{} ".format(TASK_TITLE))
+            print("\t {}".format(TASK_TITLE))
