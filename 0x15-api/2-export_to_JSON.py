@@ -15,14 +15,13 @@ if __name__ == "__main__":
     USER_ID = user.json().get('id')
     USERNAME = user.json().get('username')
     line = []
-    for item in todo.json():
-        TASK_COMPLETED_STATUS = item.get('completed')
-        TASK_TITLE = item.get('title')
-        row = {
+    with open('{}.json'.format(USER_ID), 'w') as my_file:
+        for item in todo.json():
+            TASK_COMPLETED_STATUS = item.get('completed')
+            TASK_TITLE = item.get('title')
+            line.append({
                 "task": '{}'.format(TASK_TITLE),
                 "completed": '{}'.format(TASK_COMPLETED_STATUS),
-                "username": '{}'.format(USERNAME)}
-        line.append(row)
-    data = {"{}".format(USER_ID): line}
-    with open('{}.json'.format(USER_ID), 'w') as my_file:
+                "username": '{}'.format(USERNAME)})
+        data = {"{}".format(USER_ID): line}
         json.dump(data, my_file)
