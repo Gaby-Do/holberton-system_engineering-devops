@@ -10,11 +10,11 @@ if __name__ == "__main__":
     user = requests.get(
             'https://jsonplaceholder.typicode.com/users/')
     todo = requests.get(
-            'https://jsonplaceholder.typicode.com/todos')
-    line = []
+            'https://jsonplaceholder.typicode.com/todos/')
     with open('todo_all_employees.json', 'w') as my_file:
+        line = []
         data = {}
-        for item in todo.json():
+        for item in user.json():
             USER_ID = item.get('id')
             USERNAME = item.get('username')
             for task in todo.json():
