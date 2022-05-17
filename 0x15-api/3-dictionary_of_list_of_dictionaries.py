@@ -12,18 +12,15 @@ if __name__ == "__main__":
     todo = requests.get(
             'https://jsonplaceholder.typicode.com/todos/')
     with open('todo_all_employees.json', 'w') as my_file:
-        line = []
         data = {}
         for item in user.json():
             USER_ID = item.get('id')
-            USERNAME = item.get('username')
+            line = []
             for task in todo.json():
                 if task.get('userId') == USER_ID:
-                    TASK_COMPLETED_STATUS = task.get('completed')
-                    TASK_TITLE = task.get('title')
                     line.append({
-                        "username": '{}'.format(USERNAME),
-                        "task": '{}'.format(TASK_TITLE),
-                        "completed": TASK_COMPLETED_STATUS})
+                        "username": item.get('username'),
+                        "task": task.get('title'),
+                        "completed": task.get('completed')})
             data[str(USER_ID)] = line
         json.dump(data, my_file)
